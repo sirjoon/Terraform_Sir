@@ -1,13 +1,12 @@
-
 terraform {
   backend "s3" {
     bucket      = "cf-templates-1wcpr9suq47a7-us-east-1"
     key         = "Tfstate/terraform.tfstate"
     region      = "us-east-1"
+    dynamodb_table = "terraform-state-locking"
     encrypt     = true
   }
 }
-
 
 terraform {
   required_providers {
